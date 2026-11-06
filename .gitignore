@@ -1,4 +1,14 @@
-   .env
-   vendor/
-   node_modules/
-   *.sql.env
+# Dependencias: se reinstalan con npm install
+node_modules/
+vendor/
+
+# Variables de entorno: pueden tener contraseñas y claves
+.env
+.env.*
+!.env.example
+
+# Compilado de Vite: GitHub Actions lo genera al publicar
+dist/
+
+# Respaldos de base de datos
+*.sql

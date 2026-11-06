@@ -1,6 +1,7 @@
 import { useEffect, useId, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
+import { withBase } from '../../utils/withBase';
 
 // Plain links on wide screens; a "Menú" button that opens them on phones.
 export function Navbar({ links }) {
@@ -27,7 +28,7 @@ export function Navbar({ links }) {
       <ul id={menuId} className={`${styles.links} ${open ? styles.open : ''}`}>
         {links.map((link) => (
           <li key={link.href}>
-            <a href={link.href} className={styles.link} onClick={() => setOpen(false)}>
+            <a href={withBase(link.href)} className={styles.link} onClick={() => setOpen(false)}>
               {link.label}
             </a>
           </li>

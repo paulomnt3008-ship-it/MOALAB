@@ -1,8 +1,9 @@
-﻿import { defineConfig } from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig({
-  base: '/MOALAB/',
+export default defineConfig(({ command, isPreview }) => ({
+  // GitHub Pages publishes the site under /MOALAB/. Local development stays at /.
+  base: command === 'build' || isPreview ? '/MOALAB/' : '/',
   plugins: [react()],
   server: {
     port: 5173,
@@ -18,4 +19,4 @@ export default defineConfig({
       localsConvention: 'camelCaseOnly',
     },
   },
-});
+}));

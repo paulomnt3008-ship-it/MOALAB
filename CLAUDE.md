@@ -40,6 +40,7 @@ There are no tests or linter configured yet. MySQL must be running in the XAMPP 
 ### Frontend (`frontend/src`)
 
 - `pages/` only assemble components. Routes are declared in `App.jsx`; `layouts/MainLayout` wraps every page (Header + Outlet + Footer).
+- Demo mode: the GitHub Pages build (`.github/workflows/deploy.yml`) sets `VITE_DEMO_MODE=true`, and `apiClient` then answers from `services/demoApi.js` + `services/demoData.js` (sample products, stock and orders in localStorage) instead of the backend. Keep `demoData.js` in sync with `backend/src/utils/seedProducts.js` and the cart rules. Production builds use `base: '/MOALAB/'`, so plain `<a href>` links go through `utils/withBase`; router `<Link>`s already handle it.
 - `services/apiClient.js` is the only place that calls `fetch`. Components and pages never fetch; they go through `services/*` and the hooks in `hooks/` (`useProducts`, `useAsync`).
 - `content/landingContent.js` holds all landing-page copy. The product's name, price and stock come from the backend (`backend/src/utils/seedProducts.js`).
 - `utils/productImages.js` maps the image keys stored in the DB (`bottle-front`, …) to files in `assets/images/`. The current images are SVG drawings standing in for real product photos.
@@ -57,7 +58,7 @@ There are no tests or linter configured yet. MySQL must be running in the XAMPP 
 
 ## Git
 
-The git repository root is `C:\xampp\htdocs`, one level up, and also contains unrelated sibling projects. Keep git operations scoped to `MOALAB/`.
+`MOALAB/` is its own repository (remote `paulomnt3008-ship-it/MOALAB`). `.gitignore` keeps out `node_modules/`, `dist/` and `.env` files.
 
 ## Project-local tooling
 

@@ -1,4 +1,5 @@
 import styles from './Footer.module.css';
+import { withBase } from '../../utils/withBase';
 
 // The name comes back at full width to close the page.
 export function Footer({ content }) {
@@ -10,7 +11,7 @@ export function Footer({ content }) {
           <ul className={styles.links}>
             {content.links.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className={styles.link}>{link.label}</a>
+                <a href={withBase(link.href)} className={styles.link}>{link.label}</a>
               </li>
             ))}
           </ul>
