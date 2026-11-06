@@ -1,0 +1,58 @@
+.dialog {
+  width: min(100% - 2 * var(--gutter), var(--size-modal));
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-card);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-float); /* taste-skill-ignore: dialog floats over the page */
+}
+
+.dialog::backdrop {
+  background-color: var(--color-backdrop);
+}
+
+.dialog[open] {
+  animation: pop var(--duration-base) var(--ease-spring);
+}
+
+.panel {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-6);
+}
+
+.header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.title {
+  font-size: var(--text-lg);
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  width: var(--size-icon-button);
+  height: var(--size-icon-button);
+  border-radius: var(--radius-round);
+  background-color: var(--color-surface);
+  font-size: var(--text-lg);
+  line-height: 1;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.close:hover {
+  transform: rotate(90deg);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance)) scale(0.96);
+  }
+}

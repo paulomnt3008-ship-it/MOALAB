@@ -1,0 +1,52 @@
+.price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-3);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.current {
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-heading);
+}
+
+.compare {
+  font-size: var(--text-base);
+  letter-spacing: 0;
+}
+
+.md .current {
+  font-size: var(--text-lg);
+}
+
+.lg .current {
+  font-size: var(--text-xl);
+}
+
+.xl .current {
+  font-size: var(--text-display);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-tight);
+}
+
+.xl .compare {
+  font-size: var(--text-lg);
+}
+
+.ink {
+  color: var(--color-ink);
+}
+
+.ink .compare {
+  color: var(--color-ink-muted);
+}
+
+.inverse {
+  color: var(--color-inverse-ink);
+}
+
+.inverse .compare {
+  color: var(--color-inverse-muted);
+}

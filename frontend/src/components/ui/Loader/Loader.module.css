@@ -1,0 +1,29 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  padding-block: var(--space-8);
+}
+
+.dot {
+  width: var(--size-dot);
+  height: var(--size-dot);
+  border-radius: var(--radius-round);
+  background-color: var(--color-ink);
+  animation: bounce var(--duration-slow) var(--ease-out) infinite alternate;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+@keyframes bounce {
+  to {
+    transform: translateY(calc(var(--size-dot) * -1));
+    opacity: 0.4;
+  }
+}

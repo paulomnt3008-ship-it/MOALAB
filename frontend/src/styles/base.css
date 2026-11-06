@@ -1,0 +1,46 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+  background-color: var(--color-bg);
+  transition: background-color var(--duration-background) var(--ease-out);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  color: var(--color-ink);
+  background-color: var(--color-bg);
+  transition: background-color var(--duration-background) var(--ease-out);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-snug);
+}
+
+h2 {
+  font-size: var(--text-xl);
+}
+
+h3 {
+  font-size: var(--text-lg);
+}
+
+a {
+  text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: var(--border-width) solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+::selection {
+  background-color: var(--color-ink);
+  color: var(--color-bg);
+}

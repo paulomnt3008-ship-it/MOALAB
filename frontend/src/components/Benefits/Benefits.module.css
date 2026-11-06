@@ -1,0 +1,115 @@
+.benefits {
+  --progress: 0;
+}
+
+.title {
+  max-width: var(--measure-title);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr) minmax(0, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.column {
+  display: grid;
+  align-content: start;
+  gap: var(--space-10);
+}
+
+/* The two columns drift in opposite directions with the scroll */
+.columnLeft {
+  transform: translateY(calc((0.5 - var(--progress)) * var(--drift-distance)));
+}
+
+.columnRight {
+  padding-top: var(--space-10);
+  transform: translateY(calc((var(--progress) - 0.5) * var(--drift-distance)));
+}
+
+.card {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface);
+  transition: transform var(--duration-base) var(--ease-spring);
+}
+
+.cardWrap:nth-child(odd) .card {
+  transform: rotate(-4deg);
+}
+
+.cardWrap:nth-child(even) .card {
+  transform: rotate(3deg);
+}
+
+.columnRight .cardWrap:nth-child(odd) .card {
+  transform: rotate(5deg);
+}
+
+.columnRight .cardWrap:nth-child(even) .card {
+  transform: rotate(-3deg);
+}
+
+.cardWrap .card:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+/* The card header is a black strip, like the bottle */
+.cardTitle {
+  margin: calc(var(--space-6) * -1) calc(var(--space-6) * -1) 0;
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  background-color: var(--color-inverse-bg);
+  color: var(--color-inverse-ink);
+}
+
+.cardText {
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+}
+
+.bottleColumn {
+  position: relative;
+}
+
+.bottleSticky {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-5));
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - var(--header-height) - var(--space-7));
+}
+
+.bottle {
+  height: 100%;
+  width: auto;
+  transform: rotate(calc((var(--progress) - 0.5) * 30deg)) scale(calc(0.9 + var(--progress) * 0.15));
+  transition: transform var(--duration-fast) linear;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+
+  .bottleColumn {
+    order: -1;
+  }
+
+  .bottleSticky {
+    position: static;
+    height: 50vh;
+  }
+
+  .column,
+  .columnRight {
+    gap: var(--space-7);
+    padding-top: 0;
+    transform: none;
+  }
+}

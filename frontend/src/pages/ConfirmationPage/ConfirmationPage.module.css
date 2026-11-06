@@ -1,0 +1,18 @@
+.page {
+  display: grid;
+  justify-items: start;
+  align-content: center;
+  gap: var(--space-5);
+  min-height: 80vh;
+  padding-top: var(--header-height);
+}
+
+.title {
+  font-size: var(--text-xl);
+}
+
+.sentence {
+  max-width: var(--measure);
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+}

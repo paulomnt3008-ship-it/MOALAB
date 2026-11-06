@@ -1,0 +1,21 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--space-7);
+  margin-top: var(--space-7);
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.quote {
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+}
+
+.author {
+  color: var(--color-ink-muted);
+}

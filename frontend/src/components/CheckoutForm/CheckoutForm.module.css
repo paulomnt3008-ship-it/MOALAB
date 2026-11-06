@@ -1,0 +1,11 @@
+.form {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.serverError {
+  padding: var(--space-4);
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface);
+  color: var(--color-danger);
+}

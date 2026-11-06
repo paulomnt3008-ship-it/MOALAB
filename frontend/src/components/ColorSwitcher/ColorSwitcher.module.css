@@ -1,0 +1,112 @@
+.switcher {
+  position: relative;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--size-icon-button);
+  padding-inline: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface);
+  font-weight: var(--weight-medium);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.trigger:hover {
+  transform: translateY(var(--lift-hover));
+}
+
+.trigger[aria-expanded='true'] .swatch {
+  transform: scale(0.8);
+}
+
+.swatch {
+  flex: none;
+  width: var(--size-swatch);
+  height: var(--size-swatch);
+  border: var(--border-width) solid var(--color-ink);
+  border-radius: var(--radius-round);
+  background-color: var(--color-bg);
+  transition: transform var(--duration-base) var(--ease-spring);
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  z-index: var(--layer-popover);
+  display: grid;
+  gap: var(--space-1);
+  width: var(--size-popover);
+  padding: var(--space-2);
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-float); /* taste-skill-ignore: floating popover */
+  transform-origin: top right;
+  animation: open var(--duration-base) var(--ease-spring);
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--size-control);
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-pill);
+  text-align: left;
+  animation: rise var(--duration-base) var(--ease-out) backwards;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.option:nth-child(2) { animation-delay: 40ms; }
+.option:nth-child(3) { animation-delay: 80ms; }
+.option:nth-child(4) { animation-delay: 120ms; }
+.option:nth-child(5) { animation-delay: 160ms; }
+
+.option:hover {
+  background-color: var(--color-bg);
+}
+
+.option:hover .swatch {
+  transform: scale(1.15);
+}
+
+.option[aria-checked='true'] {
+  font-weight: var(--weight-bold);
+}
+
+.option[aria-checked='true'] .swatch {
+  transform: scale(1.15);
+  outline: var(--border-width) solid var(--color-ink);
+  outline-offset: var(--border-width);
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-2));
+  }
+}
+
+@media (max-width: 640px) {
+  .trigger {
+    padding-inline: var(--space-1);
+  }
+
+  .triggerLabel {
+    display: none;
+  }
+}

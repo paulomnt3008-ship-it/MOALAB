@@ -1,0 +1,111 @@
+/*
+  Design tokens. Components use these variables only:
+  no colours, font sizes or spacing written by hand anywhere else.
+*/
+:root {
+  /* The five page backgrounds the visitor can switch between */
+  --bg-beige: #e9dfcc;
+  --bg-stone: #d7d5cf;
+  --bg-sage: #c5cfba;
+  --bg-blush: #e8d0c6;
+  --bg-mist: #c9d6df;
+
+  /* Colour roles */
+  --color-bg: var(--bg-beige);
+  --color-ink: #0f0f0e;
+  --color-ink-muted: #45433f;
+  --color-surface: color-mix(in srgb, var(--color-bg) 62%, #ffffff);
+  --color-surface-strong: color-mix(in srgb, var(--color-bg) 80%, #000000);
+  --color-inverse-bg: #0f0f0e;
+  --color-inverse-ink: #f4f4f1;
+  --color-inverse-muted: #a9a59c;
+  --color-bottle: #0d0d0d;
+  --color-danger: #9c2a1e;
+  --color-success: #2e6338;
+  --color-backdrop: rgb(15 15 14 / 0.55);
+
+  /* Type */
+  --font-sans: 'Instrument Sans', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 600;
+
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lg: clamp(1.25rem, 1.05rem + 0.8vw, 1.75rem);
+  --text-xl: clamp(2.25rem, 1.4rem + 3.6vw, 4.5rem);
+  --text-display: clamp(3rem, 0.25rem + 20.5vw, 24rem);
+
+  --leading-tight: 0.88;
+  --leading-snug: 1.1;
+  --leading-body: 1.55;
+  --tracking-display: -0.045em;
+  --tracking-heading: -0.03em;
+
+  /* Space */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 7rem;
+  --space-10: 10rem;
+
+  --gutter: clamp(1rem, 0.5rem + 2.4vw, 2.5rem);
+  --max-width: 90rem;
+  --header-height: 4.5rem;
+  --section-gap: clamp(6rem, 3rem + 9vw, 12rem);
+  --measure: 34rem;
+  --measure-title: 12ch;
+
+  /* Shape */
+  --radius-pill: 999px;
+  --radius-card: 1.75rem;
+  --radius-round: 50%;
+  --shadow-float: 0 1.5rem 4rem rgb(0 0 0 / 0.22);
+
+  /* Sizes of fixed pieces */
+  --size-swatch: 1.75rem;
+  --size-control-sm: 2.25rem;
+  --size-control: 3rem;
+  --size-control-lg: 3.75rem;
+  --size-icon-button: 2.5rem;
+  --size-badge: 1.5rem;
+  --size-dot: 0.75rem;
+  --size-modal: 30rem;
+  --size-hero-bottle: 44rem;
+  --drift-distance: 8rem;
+  --size-popover: 15rem;
+  --border-width: 2px;
+  --lift-hover: -0.125rem;
+  --size-thumb: 5.5rem;
+  --size-cart-image: 6rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 180ms;
+  --duration-base: 450ms;
+  --duration-slow: 900ms;
+  --duration-background: 700ms;
+  --duration-entrance: 1200ms;
+  --duration-float: 6s;
+  --marquee-duration: 28s;
+  --reveal-distance: 1.75rem;
+  --reveal-step: 80ms;
+
+  /* Layers */
+  --layer-header: 10;
+  --layer-popover: 20;
+  --layer-modal: 30;
+}
+
+/* Background choice. Works on <html> and on any element, so a swatch can show its own colour. */
+[data-background='beige'] { --color-bg: var(--bg-beige); }
+[data-background='stone'] { --color-bg: var(--bg-stone); }
+[data-background='sage'] { --color-bg: var(--bg-sage); }
+[data-background='blush'] { --color-bg: var(--bg-blush); }
+[data-background='mist'] { --color-bg: var(--bg-mist); }

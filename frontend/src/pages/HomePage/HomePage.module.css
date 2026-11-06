@@ -1,0 +1,18 @@
+.status {
+  display: grid;
+  justify-items: start;
+  align-content: center;
+  gap: var(--space-5);
+  min-height: 100svh;
+  padding-top: var(--header-height);
+}
+
+.statusTitle {
+  font-size: var(--text-xl);
+}
+
+.modalActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}

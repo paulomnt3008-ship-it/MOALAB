@@ -1,0 +1,106 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.usage {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.steps {
+  display: grid;
+  gap: var(--space-6);
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  align-items: baseline;
+  gap: var(--space-5);
+  padding-bottom: var(--space-6);
+}
+
+.stepTitle {
+  font-size: var(--text-xl);
+  letter-spacing: var(--tracking-display);
+  line-height: 1;
+  transition: transform var(--duration-base) var(--ease-spring);
+}
+
+.step:hover .stepTitle {
+  transform: translateX(var(--space-3));
+}
+
+.stepText {
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+}
+
+/* The spec sheet looks like the bottle's back label */
+.label {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-7) var(--space-6);
+  border-radius: var(--radius-card) var(--radius-card) calc(var(--radius-card) * 2) calc(var(--radius-card) * 2);
+  background-color: var(--color-bottle);
+  color: var(--color-inverse-ink);
+  transform: rotate(2deg);
+  transition: transform var(--duration-base) var(--ease-spring);
+}
+
+.label:hover {
+  transform: rotate(0deg);
+}
+
+.labelBrand {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.labelTitle {
+  font-size: var(--text-base);
+  color: var(--color-inverse-muted);
+  text-align: center;
+}
+
+.specList {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.specRow {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.specLabel {
+  color: var(--color-inverse-muted);
+}
+
+.specValue {
+  text-align: right;
+  font-weight: var(--weight-medium);
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .step {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .label {
+    transform: none;
+  }
+}

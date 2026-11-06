@@ -1,0 +1,49 @@
+/* Page frame: the same outer margins everywhere */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  margin-block: var(--section-gap);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*
+  Reveal on scroll. Put data-reveal on a group (useReveal does it);
+  its direct children rise in one after another.
+  Content stays visible when motion is reduced.
+*/
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] > * {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+    transition:
+      opacity var(--duration-slow) var(--ease-out),
+      transform var(--duration-slow) var(--ease-out);
+  }
+
+  [data-reveal='visible'] > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-reveal] > :nth-child(2) { transition-delay: calc(var(--reveal-step) * 1); }
+  [data-reveal] > :nth-child(3) { transition-delay: calc(var(--reveal-step) * 2); }
+  [data-reveal] > :nth-child(4) { transition-delay: calc(var(--reveal-step) * 3); }
+  [data-reveal] > :nth-child(5) { transition-delay: calc(var(--reveal-step) * 4); }
+  [data-reveal] > :nth-child(n + 6) { transition-delay: calc(var(--reveal-step) * 5); }
+}
