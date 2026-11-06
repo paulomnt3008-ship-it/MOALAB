@@ -1,8 +1,4 @@
-node_modules/
-dist/
-.env
-.env.local
-*.log
-.DS_Store
-.taste-skill/
-.playwright-cli/
+   .env
+   vendor/
+   node_modules/
+   *.sql.env
